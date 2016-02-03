@@ -1,6 +1,9 @@
 # upmon-tray
 The upmon tray application.
 
+<img src="https://raw.githubusercontent.com/alanshaw/upmon-tray/master/screenshot.jpg">
+<img src="https://raw.githubusercontent.com/alanshaw/upmon-tray/master/screenshot-error.jpg">
+
 ## Configure
 
 * Create an `.upmonrc` file (see https://github.com/alanshaw/upmon#getting-started)
