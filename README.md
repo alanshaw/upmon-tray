@@ -23,7 +23,7 @@ npm run build:darwin
 npm run build:linux
 ```
 
-## run
+## Run
 
 ```sh
 npm start
