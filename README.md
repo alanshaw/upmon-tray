@@ -1,8 +1,8 @@
 # upmon-tray
 The upmon tray application.
 
-<img src="https://raw.githubusercontent.com/alanshaw/upmon-tray/master/screenshot.jpg">
-<img src="https://raw.githubusercontent.com/alanshaw/upmon-tray/master/screenshot-error.jpg">
+<img src="https://raw.githubusercontent.com/alanshaw/upmon-tray/master/screenshot.jpg" width="432">
+<img src="https://raw.githubusercontent.com/alanshaw/upmon-tray/master/screenshot-error.jpg" width="432">
 
 ## Configure
 
