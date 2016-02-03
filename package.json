@@ -1,0 +1,42 @@
+{
+  "name": "upmon-tray",
+  "version": "0.0.0",
+  "description": "Tray app for upmon",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard",
+    "build": "npm run build:darwin",
+    "build:darwin": "electron-packager . lunchtray --platform=darwin --arch=x64 --version=0.36.7 --icon=noun_175086_cc.icns",
+    "build:linux": "electron-packager . lunchtray --platform=linux --arch=x64 --version=0.36.7 --icon=noun_175086_cc.icns",
+    "start": "electron ."
+  },
+  "dependencies": {
+    "debounce": "^1.0.0",
+    "handlebars": "^4.0.5",
+    "menubar": "^3.0.0",
+    "moment": "^2.11.1",
+    "ndjson": "^1.4.3",
+    "rc": "^1.1.6",
+    "upmon": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^5.2.1",
+    "electron-prebuilt": "^0.36.7",
+    "standard": "^5.4.1"
+  },
+  "author": "Alan Shaw",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tableflip/upmon-tray.git"
+  },
+  "keywords": [
+    "upmon",
+    "service",
+    "monitoring"
+  ],
+  "bugs": {
+    "url": "https://github.com/tableflip/upmon-tray/issues"
+  },
+  "homepage": "https://github.com/tableflip/upmon-tray#readme"
+}

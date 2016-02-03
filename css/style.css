@@ -1,0 +1,75 @@
+body {
+  font-family: RobotoDraft, sans-serif;
+  background: #424242;
+  padding: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li.site {
+  overflow: hidden;
+  list-style-type: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+li.site:last-child {
+  border-bottom: 0;
+}
+.site a {
+  display: block;
+  color: rgba(255, 255, 255, 0.87);
+  text-decoration: none;
+}
+.details {
+  padding: 5px;
+}
+.url {
+  font-size: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.timestamp, .rtt {
+  display: inline;
+  font-size: 10px;
+}
+.status {
+  float: left;
+  width: 55px;
+  height: 55px;
+  margin-right: 15px;
+  text-align: center;
+  line-height: 55px;
+}
+.status-1xx {
+  background: #757575;
+}
+.status-1xx .status {
+  background: #616161;
+}
+.status-2xx {
+  background: #43a047;
+}
+.status-2xx .status {
+  background: #388e3c;
+}
+.status-3xx {
+  background: #fb8c00;
+  color: rgba(0, 0, 0, 0.87);
+}
+.status-3xx .status {
+  background: #f57c00;
+  color: rgba(0, 0, 0, 0.87);
+}
+.status-4xx {
+  background: #f4511e;
+}
+.status-4xx .status {
+  background: #e64a19;
+}
+.status-5xx {
+  background: #e53935;
+}
+.status-5xx .status {
+  background: #d32f2f;
+}

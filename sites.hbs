@@ -1,0 +1,14 @@
+<ul>
+  {{#each sites}}
+    <li class="site {{statusClass 0.status}}">
+      <a href="{{0.url}}">
+        <div class="status">{{0.status}}</div>
+        <div class="details">
+          <div class="url">{{0.url}}</div>
+          <div class="rtt">RTT: {{0.rtt}}ms</div>
+          <div class="timestamp" data-timestamp="{{this.0.timestamp}}">{{timestampText 0.timestamp}}</div>
+        </div>
+      </a>
+    </li>
+  {{/each}}
+</ul>
