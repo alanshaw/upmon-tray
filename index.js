@@ -49,4 +49,7 @@ function updateIcon () {
 
 ipcMain.on('height', (event, height) => setWindowSize(400, height))
 
-var setWindowSize = debounce((w, h) => mb.window.setSize(w, h, true), 500)
+var setWindowSize = debounce((w, h) => {
+  if (h < 50) h = 50
+  mb.window.setSize(w, h, true)
+}, 500)
