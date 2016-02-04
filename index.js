@@ -42,7 +42,7 @@ mb.on('ready', () => {
     mb.window.webContents.on('did-finish-load', send)
   })
 
-  mb.on('show', send)
+  mb.on('after-show', send)
 })
 
 function send () {
