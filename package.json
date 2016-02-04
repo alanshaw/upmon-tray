@@ -6,8 +6,8 @@
   "scripts": {
     "test": "standard",
     "build": "npm run build:darwin",
-    "build:darwin": "electron-packager . upmon-tray --platform=darwin --arch=x64 --version=0.36.7 --icon=noun_175086_cc.icns",
-    "build:linux": "electron-packager . upmon-tray --platform=linux --arch=x64 --version=0.36.7 --icon=noun_175086_cc.icns",
+    "build:darwin": "electron-packager . upmon-tray --platform=darwin --arch=x64 --version=0.36.7 --icon=icons/noun_175086_cc.icns",
+    "build:linux": "electron-packager . upmon-tray --platform=linux --arch=x64 --version=0.36.7 --icon=icons/noun_175086_cc.icns",
     "start": "electron ."
   },
   "dependencies": {
