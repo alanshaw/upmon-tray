@@ -8,13 +8,27 @@ var Icons = require('./icons')
 
 var data = {}
 
-upmon().pipe(ndjson.parse()).on('data', d => {
-  data[d.url] = data[d.url] || []
-  data[d.url].unshift(d)
-  data[d.url] = data[d.url].slice(0, config.tray.limit)
-  send()
-  updateIcon()
-})
+function startUpmon () {
+  var pinger = upmon().on('error', restartUpmon)
+
+  pinger
+    .pipe(ndjson.parse())
+    .on('data', d => {
+      data[d.url] = data[d.url] || []
+      data[d.url].unshift(d)
+      data[d.url] = data[d.url].slice(0, config.tray.limit)
+      send()
+      updateIcon()
+    })
+    .on('error', restartUpmon)
+}
+
+function restartUpmon (err) {
+  if (err) return console.error(err)
+  setTimeout(startUpmon, 1000)
+}
+
+startUpmon()
 
 var mb = menubar({icon: Icons.default, height: 50})
 
