@@ -18,7 +18,10 @@ Handlebars.registerHelper('statusClass', status => {
 
 Handlebars.registerHelper('timestampText', timestampText)
 
-electron.ipcRenderer.on('render', (event, data) => render(data))
+electron.ipcRenderer
+  .on('data', (event, data) => render(data))
+  .on('show', startUpdateTimestampTexts)
+  .on('hide', stopUpdateTimestampTexts)
 
 function render (data) {
   data = data || {}
@@ -39,22 +42,40 @@ function addEventListener (nodeList, event, handler) {
   }
 }
 
+var updateTimestampTextsTimeout = null
+
+function startUpdateTimestampTexts () {
+  stopUpdateTimestampTexts()
+
+  updateTimestampTextsTimeout = setTimeout(() => {
+    updateTimestampTexts()
+    startUpdateTimestampTexts()
+  }, 100)
+}
+
+function stopUpdateTimestampTexts () {
+  clearTimeout(updateTimestampTextsTimeout)
+}
+
 function updateTimestampTexts () {
   var stamps = document.querySelectorAll('.timestamp')
+
   for (var i = 0; i < stamps.length; i++) {
     stamps[i].innerHTML = timestampText(stamps[i].getAttribute('data-timestamp'))
   }
-  setTimeout(updateTimestampTexts, 1000)
 }
 
 function timestampText (stamp) {
   var duration = moment.duration(parseInt(stamp, 10) - Date.now())
+  var humanized
 
   if (duration.asSeconds() < -59) {
-    return 'Updated: ' + duration.humanize(true)
+    humanized = duration.humanize(true)
+  } else {
+    humanized = `${-Math.round(duration.asSeconds())} seconds ago`
   }
 
-  return 'Updated: ' + (-duration.asSeconds().toFixed()) + ' seconds ago'
+  return `Updated: ${humanized}`
 }
 
 updateTimestampTexts()

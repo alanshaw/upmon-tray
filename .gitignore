@@ -1,3 +1,4 @@
 node_modules
 upmon-tray-darwin-x64
 upmon-tray-linux-x64
+.upmonrc

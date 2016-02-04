@@ -17,7 +17,7 @@ function startUpmon () {
       data[d.url] = data[d.url] || []
       data[d.url].unshift(d)
       data[d.url] = data[d.url].slice(0, config.tray.limit)
-      send()
+      sendData()
       updateIcon()
     })
     .on('error', restartUpmon)
@@ -38,17 +38,25 @@ mb.on('ready', () => {
   updateIcon()
 
   mb.on('after-create-window', () => {
-    // mb.window.webContents.openDevTools()
-    mb.window.webContents.on('did-finish-load', send)
+    mb.window.webContents.on('did-finish-load', () => {
+      // mb.window.webContents.openDevTools()
+      mb.window.webContents.send('show')
+      sendData()
+    })
   })
 
-  mb.on('after-show', send)
+  mb.on('after-show', () => {
+    mb.window.webContents.send('show')
+    sendData()
+  })
+
+  mb.on('after-hide', () => mb.window.webContents.send('hide'))
 })
 
-function send () {
+function sendData () {
   if (!mb.window) return
   if (!mb.window.isVisible()) return
-  mb.window.webContents.send('render', data)
+  mb.window.webContents.send('data', data)
 }
 
 function updateIcon () {

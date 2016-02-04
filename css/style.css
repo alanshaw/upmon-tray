@@ -11,6 +11,7 @@ li.site {
   overflow: hidden;
   list-style-type: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: background 0.15s linear;
 }
 li.site:last-child {
   border-bottom: 0;
@@ -40,6 +41,7 @@ li.site:last-child {
   margin-right: 15px;
   text-align: center;
   line-height: 55px;
+  transition: background 0.15s linear;
 }
 .status-1xx {
   background: #757575;
@@ -47,19 +49,35 @@ li.site:last-child {
 .status-1xx .status {
   background: #616161;
 }
+.status-1xx:hover {
+  background: #9e9e9e;
+}
+.status-1xx:hover .status {
+  background: #757575;
+}
 .status-2xx {
   background: #43a047;
 }
 .status-2xx .status {
   background: #388e3c;
 }
+.status-2xx:hover {
+  background: #4caf50;
+}
+.status-2xx:hover .status {
+  background: #43a047;
+}
 .status-3xx {
   background: #fb8c00;
-  color: rgba(0, 0, 0, 0.87);
 }
 .status-3xx .status {
   background: #f57c00;
-  color: rgba(0, 0, 0, 0.87);
+}
+.status-3xx:hover {
+  background: #ff9800;
+}
+.status-3xx:hover .status {
+  background: #fb8c00;
 }
 .status-4xx {
   background: #f4511e;
@@ -67,9 +85,21 @@ li.site:last-child {
 .status-4xx .status {
   background: #e64a19;
 }
+.status-4xx:hover {
+  background: #ff5722;
+}
+.status-4xx:hover .status {
+  background: #f4511e;
+}
 .status-5xx {
   background: #e53935;
 }
 .status-5xx .status {
   background: #d32f2f;
+}
+.status-5xx:hover {
+  background: #f44336;
+}
+.status-5xx:hover .status {
+  background: #e53935;
 }
